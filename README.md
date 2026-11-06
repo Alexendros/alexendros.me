@@ -106,25 +106,23 @@ Conducta: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). Vulnerabilidades:
 
 <!-- RELEASE_SECTION_START -->
 <details>
-<summary><strong>v0.15.2</strong> (2026-10-25)</summary>
+<summary><strong>v0.16.0</strong> (2026-11-06)</summary>
 
-## [0.15.2] — 2026-10-25
+## [0.16.0] — 2026-11-06
 
-### Seguridad
+### Añadido
 
-- Cierra path-injection CodeQL en `a11y-audit` / `perf-audit` con `resolveSafePath`.
-- Sube `happy-dom` ≥21.0.4, `zod` ≥4.6.6, `vite` 8.1.6 y `brace-expansion` parcheado (0 high en `npm audit --audit-level=high`).
-- Jobs CI `secrets` (gitleaks v8.30.1) y `sca` (npm audit + OSV high/critical).
-
-### Corregido
-
-- Workflow Lighthouse Scores: pipefail, extractor Node, config de producción y fallback a `out/` sin bajar umbrales.
-- `get-next-version.sh` solo interpreta tipos conventional en el subject (evita falsos bumps por el cuerpo del squash).
+- Componentes `Card` e `Input` en `components/ui/` (cva + tokens `--ax-*`,
+  focus-visible, disabled, teclado básico) con tests en
+  `__tests__/components/`.
+- Guía de uso en `docs/guides/components.md` e inventario T1 en
+  `docs/audits/design-system-incremental-t1-cta-inventory.md`.
 
 ### Cambiado
 
-- `LICENSE` MIT reconocible (contenido editorial CC BY-NC-SA en `/legal/licencia`).
-- Raíz: elimina `p.zip`; auditorías históricas en `docs/audits/`.
+- `ContactFab` y `CopyEmail` migrados a `Button` (adopción 7/8 CTAs principales,
+  87,5 %).
+- `Input` añade variantes de tamaño `default`/`sm` vía cva.
 
 </details>
 <!-- RELEASE_SECTION_END -->

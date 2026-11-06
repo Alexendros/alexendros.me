@@ -344,6 +344,7 @@ El lenguaje de formas es de **precisión arquitectónica**:
 - **Atmosphere**: capas CSS con animación `atm-drift`, respeta
   `prefers-reduced-motion`.
 - **Iconos**: Lucide, tamaño por defecto 20px.
+- **Inventario y uso de `components/ui/`**: ver `docs/guides/components.md` (Button, Card, Input, Popover, Sheet, Separator, Badge).
 
 ## Do's and Don'ts
 

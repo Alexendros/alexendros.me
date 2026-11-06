@@ -13,6 +13,22 @@ Todos los cambios destacables de este proyecto se documentan en este archivo.
 El formato sigue [Keep a Changelog 1.1.0](https://keepachangelog.com/es-ES/1.1.0/),
 y este proyecto se adhiere a [SemVer 2.0.0](https://semver.org/lang/es/).
 
+## [0.16.0] — 2026-11-06
+
+### Añadido
+
+- Componentes `Card` e `Input` en `components/ui/` (cva + tokens `--ax-*`,
+  focus-visible, disabled, teclado básico) con tests en
+  `__tests__/components/`.
+- Guía de uso en `docs/guides/components.md` e inventario T1 en
+  `docs/audits/design-system-incremental-t1-cta-inventory.md`.
+
+### Cambiado
+
+- `ContactFab` y `CopyEmail` migrados a `Button` (adopción 7/8 CTAs principales,
+  87,5 %).
+- `Input` añade variantes de tamaño `default`/`sm` vía cva.
+
 ## [0.15.2] — 2026-10-25
 
 ### Seguridad

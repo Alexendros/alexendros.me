@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Check, Copy } from "lucide-react";
 import { siteConfig } from "@/lib/site";
+import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
@@ -43,7 +44,7 @@ export function CopyEmail() {
 
   return (
     <>
-      <button
+      <Button
         type="button"
         className={cn("fab-btn fab-btn--ghost")}
         data-state={status}
@@ -55,7 +56,7 @@ export function CopyEmail() {
           <Copy className="icn-sm" aria-hidden="true" />
         )}
         <span>{label}</span>
-      </button>
+      </Button>
       {/* Región viva visible solo para lectores de pantalla: anuncia el resultado. */}
       <span className="sr-only" role="status" aria-live="polite">
         {status === "idle" ? "" : label}
