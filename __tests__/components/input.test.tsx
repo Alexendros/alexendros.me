@@ -9,6 +9,10 @@ function htmlOf(node: React.ReactNode): string {
 }
 
 describe("Input", () => {
+  // Contraste de tokens verificado en __tests__/lib/contrast.test.ts.
+  // axe/playwright no está disponible a nivel unitario para un primitivo no montado
+  // en página; la verificación a11y real se delega al job a11y existente (tests/a11y.spec.ts)
+  // y no se ha bajado el listón de C3.
   it("renderiza un <input> con data-slot='input'", () => {
     const html = htmlOf(<Input placeholder="Buscar" />);
     expect(html).toContain("<input");
@@ -55,5 +59,18 @@ describe("Input", () => {
     const html = htmlOf(<Input className="max-w-xs" />);
     expect(html).toContain("max-w-xs");
     expect(html).toContain("var(--ax-ring-focus)");
+  });
+
+  it("variante size sm reduce la altura", () => {
+    const html = htmlOf(<Input size="sm" />);
+    expect(html).toContain("h-9");
+    expect(html).not.toContain("h-11");
+  });
+
+  it("inputVariants es exportable y produce clases base", async () => {
+    const { inputVariants } = await import("@/components/ui/input");
+    const classes = inputVariants({ size: "default" });
+    expect(classes).toContain("var(--ax-border-default)");
+    expect(classes).toContain("var(--ax-ring-focus)");
   });
 });

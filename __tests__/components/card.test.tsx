@@ -18,6 +18,10 @@ function htmlOf(node: React.ReactNode): string {
 }
 
 describe("Card", () => {
+  // Contraste de tokens verificado en __tests__/lib/contrast.test.ts.
+  // axe/playwright no está disponible a nivel unitario para un primitivo no montado
+  // en página; la verificación a11y real se delega al job a11y existente (tests/a11y.spec.ts)
+  // y no se ha bajado el listón de C3.
   it("renderiza hijos y expone data-slot='card'", () => {
     const html = htmlOf(<Card>Hola tarjeta</Card>);
     expect(html).toContain('data-slot="card"');

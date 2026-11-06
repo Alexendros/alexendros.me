@@ -71,15 +71,18 @@ import {
 
 ### `Input` (`components/ui/input.tsx`)
 
+Variantes de tamaño vía cva: `default` (h-11), `sm` (h-9).
+
 ```tsx
 import { Input } from "@/components/ui/input";
 
-<Input type="search" placeholder="Buscar…" aria-label="Buscar" />;
+<Input type="search" placeholder="Buscar…" aria-label="Buscar" />
+<Input size="sm" type="text" aria-label="Filtro" />
 ```
 
-- Altura mínima de tap target (`h-11`).
+- Altura mínima de tap target (`h-11` en `default`).
 - Estados `focus-visible` (anillo de marca) y `disabled` consistentes.
-- Validación visual con `aria-invalid`.
+- Validación visual con `aria-invalid` (borde `--ax-error-fg`).
 
 ## Componentes existentes
 
@@ -88,13 +91,38 @@ import { Input } from "@/components/ui/input";
 - `Sheet` (`components/ui/sheet.tsx`): `Sheet`, `SheetContent`,
   `SheetTrigger`.
 - `Separator` (`components/ui/separator.tsx`).
-- `Badge` (`components/ui/badge.tsx`): sin consumidores actuales; adoptar en
-  pills de etiqueta o retirar en tarea aparte.
+- `Badge` (`components/ui/badge.tsx`): sin consumidores actuales.
+  **Decisión (2026-11-06): opción B** — se mantiene hasta una unidad de
+  limpieza (owner: Mantenedor/Alexendros, fecha objetivo ≤ 2026-12-01). No
+  usar en nuevas vistas hasta entonces.
 
 ## Candidatos aprobados (no implementados aún)
 
 - `Dialog` (búsqueda global).
 - `Toast` (aviso PWA), condicional a un segundo consumidor.
+
+## Cuándo usar Card vs superficies ad-hoc
+
+- Usa `Card` para contenedores genéricos reutilizables (listados, paneles,
+  bloques de contenido) que no necesiten animaciones especiales.
+- Mantén `spot-card`, `opinion-featured__card` y `article-item` mientras
+  conserven su foco de luz e inner-highlight propios; su migración a `Card`
+  es opcional y fuera de esta unidad (no rediseñar layouts).
+- Regla: si una superficie necesita `trackPointer` o animación dedicada,
+  mantén la clase ad-hoc; en caso contrario, prefiere `Card`.
+
+## Cuándo usar Input
+
+- Único campo de entrada actual: búsqueda global (`search-dialog`).
+- Para nuevos formularios o filtros, usar `Input` en lugar de `<input>` suelto.
+- Validación visual con `aria-invalid` (borde `--ax-error-fg`).
+
+## Regla de oro
+
+- Solo tokens `--ax-*` o capa semántica shadcn (`bg-card`, `text-foreground`, …).
+  Prohibido hardcodear colores, spacing o radii.
+- Estados mínimos exigidos en todo componente tocado: `focus-visible`,
+  `disabled` y, en Input, `aria-invalid`.
 
 Ver inventario completo en
 `docs/audits/design-system-incremental-t1-cta-inventory.md`.
