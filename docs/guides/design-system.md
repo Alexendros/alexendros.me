@@ -12,6 +12,7 @@
 
 - [DESIGN.md](../../DESIGN.md) — tokens, componentes y principios
 - [STYLEGUIDE.md](../../STYLEGUIDE.md) — voz y atmósfera
+- [components.md](./components.md) — uso de `components/ui/`
 
 Prefijo `--ax-*` para color, motion, spacing y layout. Triple cadena de
 aliases compatible con shadcn/ui. Dark-first.

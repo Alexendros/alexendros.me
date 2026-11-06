@@ -16,6 +16,7 @@
 | [guides/desarrollo.md](./guides/desarrollo.md)       | Arranque local y PR              |
 | [guides/calidad.md](./guides/calidad.md)             | Coverage y jobs de CI            |
 | [guides/design-system.md](./guides/design-system.md) | Tokens `--ax-*` y STYLEGUIDE     |
+| [guides/components.md](./guides/components.md)       | Uso de `components/ui/`          |
 | [runbooks/ci-deploy.md](./runbooks/ci-deploy.md)     | Fallos de CI y deploy Vercel     |
 | [reconversion-me.md](./reconversion-me.md)           | Plan histórico de reconversión   |
 | [CHANGELOG.md](./CHANGELOG.md)                       | Síntesis cronológica de hitos    |
