@@ -57,3 +57,4 @@ lighthouse-reports/
 
 # Accidental local archives (plan/patch zip from ronda 2)
 p.zip
+*.tar.gz
